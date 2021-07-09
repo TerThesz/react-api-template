@@ -1,9 +1,11 @@
-import HelloWorld from './components/hello-world/HelloWorld';
 import './assets/css/main.css';
+import { AuthMiddleware } from './middlewares';
 
 function App() {
   return (
-    <HelloWorld />
+    <AuthMiddleware>
+      
+    </AuthMiddleware>
   );
 }
 

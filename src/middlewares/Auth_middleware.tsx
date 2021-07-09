@@ -5,10 +5,10 @@ import { fetch } from '../services';
 interface Auth_middlewareProps {}
 
 const Auth_middleware: React.FC<Auth_middlewareProps> = ({ children }) => {
-  const [ isAuthentificated, setIsAuthenticated ] = useState(isBool(sessionStorage.getItem('auth')));
+  const [ isAuthenticated, setIsAuthenticated ] = useState(isBool(sessionStorage.getItem('auth')));
 
   useEffect(() => {
-    if (isAuthentificated === null) {
+    if (isAuthenticated === null) {
       fetch('auth').then(() => {
         sessionStorage.setItem('is_auth', 'true');
         setIsAuthenticated(true);
@@ -22,7 +22,7 @@ const Auth_middleware: React.FC<Auth_middlewareProps> = ({ children }) => {
 
   return (
     <>
-      {isAuthentificated === true ?
+      {isAuthenticated === true ?
         <Router>
           <Switch>
             {children}
