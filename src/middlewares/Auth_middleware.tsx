@@ -2,6 +2,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import { fetch } from '../services';
 
+import { Main, Login } from '../pages'
+
 interface Auth_middlewareProps {}
 
 const Auth_middleware: React.FC<Auth_middlewareProps> = ({ children }) => {
@@ -25,12 +27,14 @@ const Auth_middleware: React.FC<Auth_middlewareProps> = ({ children }) => {
       {isAuthenticated === true ?
         <Router>
           <Switch>
-            {children}
+            {/* Switch Main/ with children after testing */}
+            <Main />
+            {/* children */}
           </Switch>
         </Router> :
         <Router>
           <Switch>
-            {/* Login & Register   */}
+            <Login />
           </Switch>
         </Router>
       }

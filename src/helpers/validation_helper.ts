@@ -18,8 +18,6 @@ async function validationHelper(formObject: any, schema: any, cb: Function) {
       if (!Object.keys(inputObjects).includes(inner.path)) throw 'Element does not exits >:(\n' + inner;
     });
 
-    inputs.forEach((input: any) => errors.find((e: any) => e.path === input.name) ? input.classList.add('error') : input.classList.remove('error'));
-
     return cb(errors === [] ? null : errors);
   }
 }
